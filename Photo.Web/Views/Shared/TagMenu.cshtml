@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Photo.Web.Models.Tag>
+
+<ul>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <li>
+                @Html.ActionLink(@item.Name, "Page", new { id = @item.ID }, new { target = "_blank" })
+            </li>
+        }
+    }
+</ul>
