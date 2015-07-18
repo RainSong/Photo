@@ -4,19 +4,73 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
 
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+        body {
+            margin-top: -19px;
+        }
 
+        .head {
+            background-image: url(../../Content/imgs/top_menu_bg.png);
+            background-color: #000;
+            background-clip: border-box;
+            font-size: 12px;
+            text-align: center;
+            display: block;
+            height: 80px;
+            line-height: 60px;
+        }
+
+        .top_title {
+            margin-top: 19px;
+            color: #FFF;
+            text-decoration: none;
+        }
+
+        .head ul {
+            margin: 0 0 0 400px;
+            list-style:none;
+        }
+
+        .head li {
+            list-style: none;
+            width: 100px;
+            float: left;
+            display: block;
+            height: 60px;
+            line-height: 60px;
+            margin-top: 19px;
+            font-size: 16px;
+            color: #FFF;
+        }
+        .head li a{
+            font-family:"Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simhei,"黑体";
+            cursor:pointer;
+        }
+    </style>
 </head>
 <body>
-
+    <div class="head">
+        <h1 style=" width: 200px; margin-left: 100px; float:left;">@Html.ActionLink("PIAOLIANGTUPIAN", "Index", "Home", new { @class = "top_title" })</h1>
+        <ul>
+            <li style=" width:100px; float:left; display:block;">
+                <a>首页</a>
+            </li>
+            <li style=" width:100px; float:left; display:block;">
+                <a>浏览最多</a>
+            </li>
+            <li style=" width:100px; float:left; display:block;">
+               <a>我喜欢</a>
+            </li>
+        </ul>
+    </div>
 
     @RenderBody()
 
-
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
 
 </body>
 </html>
