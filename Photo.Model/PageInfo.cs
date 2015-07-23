@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Photo.Model
 {
+    [Table("Page_info")]
     public class PageInfo
     {
         public PageInfo() { }
@@ -28,5 +30,7 @@ namespace Photo.Model
 
         public int is_readed { get; set; }
 
+        [NotMapped]
+        public IEnumerable<FileInfo> fiels { get; set; }
     }
 }

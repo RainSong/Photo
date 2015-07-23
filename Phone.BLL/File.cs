@@ -1,10 +1,12 @@
 ﻿using Photo.DAL;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
 namespace Photo.BLL
 {
-    public class FileInfo
+    public class File
     {
         public Model.FileInfo Get(int id)
         {
@@ -61,5 +63,37 @@ namespace Photo.BLL
             }
         }
 
+        /// <summary>
+        /// 根据PageID取第一个图片
+        /// </summary>
+        /// <param name="pageIds"></param>
+        /// <returns></returns>
+        public IEnumerable<Model.FileInfo> GetFileInfos(IEnumerable<int> pageIds)
+        {
+            using (var dbContext = new PhotoContext())
+            {
+                var files = (from pf in dbContext.PageFiles
+                             join f in dbContext.FileInfos on pf.file_id equals f.id into t
+                             from tt in t.DefaultIfEmpty()
+                             where pageIds.Contains(pf.page_id)
+                             orderby tt.add_time
+                             group tt by pf.page_id into g
+                             select new
+                             {
+                                 PageId = g.Key,
+                                 url = g.FirstOrDefault().url,
+                                 path = g.FirstOrDefault().path
+                             }).ToList();
+                var list = (from f in files
+                            select new Model.FileInfo
+                            {
+                                PageId = f.PageId,
+                                url = f.url,
+                                path = f.path
+                            }).AsEnumerable();
+
+                return list;
+            }
+        }
     }
 }

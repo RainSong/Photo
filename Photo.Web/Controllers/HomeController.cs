@@ -13,7 +13,22 @@ namespace Photo.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var pageBll = new BLL.Page();
+            var pages = pageBll.GetPages(0, 10);
+            if (pages != null)
+            {
+                var pageIds = pages.Select(o => o.id).AsEnumerable();
+                var fileBll = new BLL.File();
+                var files = fileBll.GetFileInfos(pageIds);
+                if (files != null)
+                {
+                    foreach (var page in pages) 
+                    {
+                        page.fiels = files.Where(o => o.PageId == page.id).AsEnumerable();
+                    }
+                }
+            }
+            return View(pages);
         }
 
     }

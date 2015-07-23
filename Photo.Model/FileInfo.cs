@@ -23,5 +23,8 @@ namespace Photo.Model
 
         [StringLength(200)]
         public string path { get; set; }
+
+        [NotMapped]
+        public int PageId { get; set; }
     }
 }

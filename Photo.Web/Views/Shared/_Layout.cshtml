@@ -33,7 +33,7 @@
 
         .head ul {
             margin: 0 0 0 400px;
-            list-style:none;
+            list-style: none;
         }
 
         .head li {
@@ -47,10 +47,11 @@
             font-size: 16px;
             color: #FFF;
         }
-        .head li a{
-            font-family:"Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simhei,"黑体";
-            cursor:pointer;
-        }
+
+            .head li a {
+                font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simhei,"黑体";
+                cursor: pointer;
+            }
     </style>
 </head>
 <body>
@@ -64,13 +65,17 @@
                 <a>浏览最多</a>
             </li>
             <li style=" width:100px; float:left; display:block;">
-               <a>我喜欢</a>
+                <a>我喜欢</a>
             </li>
         </ul>
     </div>
-
-    @RenderBody()
-
-
+    <div>
+        <div>
+            @RenderBody()
+        </div>
+        <div>
+            @Html.Action("TagMenu", "Tag")
+        </div>
+    </div>
 </body>
 </html>
