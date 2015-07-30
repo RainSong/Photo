@@ -81,15 +81,20 @@ namespace Photo.BLL
                              select new
                              {
                                  PageId = g.Key,
-                                 url = g.FirstOrDefault().url,
-                                 path = g.FirstOrDefault().path
+                                 url = g.FirstOrDefault() == null ? string.Empty : g.FirstOrDefault().url,
+                                 path = g.FirstOrDefault() == null ? string.Empty : g.FirstOrDefault().path,
+                                 width = g.FirstOrDefault() == null ? 0 : g.FirstOrDefault().width,
+                                 height = g.FirstOrDefault() == null ? 0 : g.FirstOrDefault().height
+
                              }).ToList();
                 var list = (from f in files
                             select new Model.FileInfo
                             {
                                 PageId = f.PageId,
                                 url = f.url,
-                                path = f.path
+                                path = f.path,
+                                width = f.width,
+                                height = f.height
                             }).AsEnumerable();
 
                 return list;

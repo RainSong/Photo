@@ -18,5 +18,6 @@ namespace Photo.Model
         public int file_id { get; set; }
 
         public DateTime add_time { get; set; }
+
     }
 }

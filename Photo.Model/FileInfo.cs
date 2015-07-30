@@ -26,5 +26,10 @@ namespace Photo.Model
 
         [NotMapped]
         public int PageId { get; set; }
+
+
+        public int width { get; set; }
+
+        public int height { get; set; }
     }
 }
