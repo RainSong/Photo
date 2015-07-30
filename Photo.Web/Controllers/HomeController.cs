@@ -15,20 +15,37 @@ namespace Photo.Web.Controllers
         {
             var pageBll = new BLL.Page();
             var pages = pageBll.GetPages(0, 10);
+            List<Photo.Web.Models.Page> list = null;
             if (pages != null)
             {
                 var pageIds = pages.Select(o => o.id).AsEnumerable();
                 var fileBll = new BLL.File();
                 var files = fileBll.GetFileInfos(pageIds);
+                
                 if (files != null)
                 {
-                    foreach (var page in pages) 
-                    {
-                        page.fiels = files.Where(o => o.PageId == page.id).AsEnumerable();
-                    }
+                    var imgs = (from f in files
+                                select new Photo.Web.Models.Img
+                                {
+                                    Id = f.id,
+                                    Url = f.url,
+                                    Path = f.path,
+                                    PageId = f.PageId,
+                                    Width = f.width,
+                                    Height = f.height
+                                }).ToList();
+                    list = (from p in pages
+                            select new Photo.Web.Models.Page
+                            {
+                                Id = p.id,
+                                AddTime = p.add_time,
+                                Title = p.title,
+                                Description = p.description,
+                                DefaultImg = imgs.FirstOrDefault(o => o.PageId == p.id)
+                            }).ToList();
                 }
             }
-            return View(pages);
+            return View(list);
         }
 
     }
