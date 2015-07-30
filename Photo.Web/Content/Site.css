@@ -1,61 +1,110 @@
-﻿body {
-    font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    color: #232323;
-    background-color: #fff;
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    margin-top: -19px;
+    background-color: #F1F1F1;
 }
 
-header, footer, nav, section {
+.head {
+    background-image: url(../../Content/imgs/top_menu_bg.png);
+    background-color: #000;
+    background-clip: border-box;
+    font-size: 12px;
+    text-align: center;
+    display: block;
+    height: 80px;
+    line-height: 60px;
+}
+
+.top_title {
+    margin-top: 19px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.head ul {
+    margin: 0 0 0 400px;
+    list-style: none;
+}
+
+.head li {
+    list-style: none;
+    width: 100px;
+    float: left;
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    margin-top: 19px;
+    font-size: 16px;
+    color: #FFF;
+}
+
+    .head li a {
+        font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simhei,"黑体";
+        cursor: pointer;
+    }
+
+.clearfix {
+    display: block;
+    width: 635px;
+    height: 70px;
     display: block;
 }
 
-
-/* Styles for basic forms
------------------------------------------------------------*/
-fieldset {
-    border: 1px solid #ddd;
-    padding: 0 1.4em 1.4em 1.4em;
-    margin: 0 0 1.5em 0;
+.mateRight {
+    margin: 25px 35px 0 35px;
+    text-align: left;
+    line-height: 22px;
+    display: block;
+    float: left;
 }
 
-legend {
-    font-size: 1.2em;
+    .mateRight :before {
+        background: url(../../Content/imgs/arrow.gif) no-repeat center left;
+        padding-left: 12px;
+        position: relative;
+        left: -13px;
+    }
+
+.mateLeft {
+    margin: 25px 15px 0 0;
+    width: 50px;
+    height: 45px;
+    float: right;
+}
+
+.day {
+    font-family: 微软雅黑;
+    font-size: 36px;
+    color: #333;
     font-weight: bold;
+    line-height: 36px;
 }
 
-textarea {
-    min-height: 75px;
+.month_Year {
+    color: #999;
+    font: bold 10px/10px Arial, Helvetica, sans-serif;
+    padding-left: 3px;
 }
 
-.editor-label {
-    margin: 1em 0 0 0;
+.pageContainer {
+    width: 990px;
+    background: #FFF;
+    border: 1px solid #ECECEC;
+    border-top: none;
+    border-bottom: 2px solid #D7D7D7;
+    margin:auto;
 }
 
-.editor-field {
-    margin: 0.5em 0 0 0;
+.mainContainer {
+    float: left;
+    width: 675px;
+    border-right: 1px solid #EFEFEF;
 }
 
-
-/* Styles for validation helpers
------------------------------------------------------------*/
-.field-validation-error {
-    color: #f00;
-}
-
-.field-validation-valid {
-    display: none;
-}
-
-.input-validation-error {
-    border: 1px solid #f00;
-    background-color: #fee;
-}
-
-.validation-summary-errors {
-    font-weight: bold;
-    color: #f00;
-}
-
-.validation-summary-valid {
-    display: none;
+.sidebar {
+    width: 298px;
+    float: left;
+    overflow: hidden;
+    margin: 5px 8px;
 }
