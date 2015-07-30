@@ -1,5 +1,4 @@
-﻿@model IEnumerable<Photo.Model.PageInfo>
-
+﻿@model IEnumerable<Photo.Web.Models.Page>
 @{
     ViewBag.Title = "首页";
 }
@@ -8,14 +7,31 @@
     {
         foreach (var page in Model)
         {
-            <div style=" width:675px; height:70px;">
-                @page.description
+            @*Title*@
+            <div class="clearfix">
+                <div class="mateRight">
+                    <h2 style="margin:0;">
+                        <a href="#" style=" text-decoration:none; color:#333; font-family:微软雅黑,Arial, Helvetica, sans-serif;font-size:14px;">@page.Title</a>
+                    </h2>
+                    <p style=" margin:0;font-family:微软雅黑,Arial, Helvetica, sans-serif;font-size:14px; color:#666;">Tags:tag1，tag2，tag3</p>
+                </div>
+                <div class="mateLeft">
+                    <div class="day">
+                        @DateTime.Now.Day
+                    </div>
+                    <div class="month_Year">
+                        @DateTime.Now.Month&nbsp;@DateTime.Now.Year
+                    </div>
+                </div>
             </div>
-            <div style=" width:638px; height:659px">
-                @if (page.fiels != null && page.fiels.Count() > 0)
+            
+            @*Image*@
+            <div style=" width:635px;">
+                @if (page != null && page.DefaultImg != null)
                 {
-                    <a href="#">
-                        <img alt="" src="~/imgs/@page.fiels.FirstOrDefault().path.Replace("\\", "//")" />
+                    string style = string.Format("width:{0}px;height:{1}px;", page.DefaultImg.DisplayWidth, page.DefaultImg.DisplayHeight);
+                    <a href="#" style="@style">
+                        <img alt="" style="width:100%; height:100%;" src="~/imgs/@page.DefaultImg.Path.Replace(" \\", "//")" />
                     </a>
                 }
             </div>

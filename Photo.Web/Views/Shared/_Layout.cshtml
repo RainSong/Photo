@@ -4,55 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <style type="text/css">
-        html, body {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            margin-top: -19px;
-        }
-
-        .head {
-            background-image: url(../../Content/imgs/top_menu_bg.png);
-            background-color: #000;
-            background-clip: border-box;
-            font-size: 12px;
-            text-align: center;
-            display: block;
-            height: 80px;
-            line-height: 60px;
-        }
-
-        .top_title {
-            margin-top: 19px;
-            color: #FFF;
-            text-decoration: none;
-        }
-
-        .head ul {
-            margin: 0 0 0 400px;
-            list-style: none;
-        }
-
-        .head li {
-            list-style: none;
-            width: 100px;
-            float: left;
-            display: block;
-            height: 60px;
-            line-height: 60px;
-            margin-top: 19px;
-            font-size: 16px;
-            color: #FFF;
-        }
-
-            .head li a {
-                font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simhei,"黑体";
-                cursor: pointer;
-            }
-    </style>
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
     <div class="head">
@@ -69,13 +21,14 @@
             </li>
         </ul>
     </div>
-    <div>
-        <div>
+    <div class="pageContainer">
+        <div class="mainContainer">
             @RenderBody()
         </div>
-        <div>
+        <div class="sidebar">
             @Html.Action("TagMenu", "Tag")
         </div>
+        <div style="clear:both;"></div>
     </div>
 </body>
 </html>
