@@ -1,6 +1,10 @@
-﻿html, body {
+﻿html, body, div, h1, h2, a, p, ul, li {
     margin: 0;
     padding: 0;
+    font-family: 微软雅黑,Arial, Helvetica, sans-serif;
+}
+
+html, body {
     margin-top: -19px;
     background-color: #F1F1F1;
 }
@@ -51,6 +55,8 @@
     display: block;
 }
 
+/******图片上Title*******/
+
 .mateRight {
     margin: 25px 35px 0 35px;
     text-align: left;
@@ -64,6 +70,18 @@
         padding-left: 12px;
         position: relative;
         left: -13px;
+    }
+
+    .mateRight h2 a {
+        text-decoration: none;
+        color: #333;
+        font-family: 微软雅黑,Arial, Helvetica, sans-serif;
+        font-size: 14px;
+    }
+
+    .mateRight p {
+        font-size: 14px;
+        color: #666;
     }
 
 .mateLeft {
@@ -87,13 +105,15 @@
     padding-left: 3px;
 }
 
+/******热门分类*******/
+
 .pageContainer {
     width: 990px;
     background: #FFF;
     border: 1px solid #ECECEC;
     border-top: none;
     border-bottom: 2px solid #D7D7D7;
-    margin:auto;
+    margin: 20px auto auto auto;
 }
 
 .mainContainer {
@@ -101,10 +121,50 @@
     width: 675px;
     border-right: 1px solid #EFEFEF;
 }
-
+/******热门分类*******/
 .sidebar {
     width: 298px;
     float: left;
     overflow: hidden;
     margin: 5px 8px;
+}
+
+    .sidebar ul {
+        list-style: none;
+    }
+
+    .sidebar li {
+        display: block;
+        float: left;
+        width: 50px;
+        margin-left: 10px;
+    }
+
+        .sidebar li a {
+            color: rgb(102,102,102);
+            text-decoration: none;
+            cursor: pointer;
+        }
+/******热门分类*******/
+
+.postContent {
+    padding: 10px 20px;
+    width: 638px;
+    float: left;
+    overflow: hidden;
+}
+
+.postLine {
+    width: 645px;
+    height: 1px;
+    border-bottom: 1px solid #ddd;
+    margin: 0 15px;
+    clear: both;
+}
+
+.wapper {
+    z-index: 2;
+    width: 990px;
+    margin: 0 auto;
+    text-align: left;
 }
