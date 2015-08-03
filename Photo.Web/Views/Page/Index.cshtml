@@ -1,0 +1,38 @@
+﻿@model Photo.Web.Models.Page
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div class="clearfix">
+    <div class="mateRight">
+        <h2 style="margin:0;">
+            <a href="#">@Model.Title</a>
+        </h2>
+        @{
+            string tags = string.Empty;
+            if (Model.Tags != null && Model.Tags.Count() > 0)
+            {
+                tags = string.Join("，", Model.Tags.Select(o => o.Name).Distinct().ToArray());
+            }
+        }
+        <p>Tags:@tags</p>
+    </div>
+    <div class="mateLeft">
+        <div class="day">
+            @Model.AddTime.ToString("dd")
+        </div>
+        <div class="month_Year">
+            @Model.AddTime.Month&nbsp;@Model.AddTime.Year
+        </div>
+    </div>
+</div>
+
+@*Image*@
+<div class="postContent">
+    @foreach (var img in Model.Imgs)
+    {
+        <img alt="" style="width:100%; height:100%;" src="~/imgs/@img.Path.Replace(" \\", "//")" />
+        <div class="postLine"></div>
+    }
+</div>

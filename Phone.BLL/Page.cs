@@ -20,5 +20,13 @@ namespace Photo.BLL
                 return pages;
             }
         }
+
+        public Model.PageInfo GetPage(int pageId)
+        {
+            using (var dbContext = new DAL.PhotoContext())
+            {
+                return dbContext.PageInfos.SingleOrDefault(o => o.id == pageId);
+            }
+        }
     }
 }

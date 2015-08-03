@@ -49,7 +49,7 @@ namespace Photo.BLL
             }
         }
 
-        public IQueryable<Model.FileInfo> GetFileInfos(int pageId)
+        public IEnumerable<Model.FileInfo> GetFileInfos(int pageId)
         {
             using (var dbContext = new PhotoContext())
             {
@@ -57,7 +57,7 @@ namespace Photo.BLL
                              join pf in dbContext.PageFiles on p.id equals pf.page_id
                              join f in dbContext.FileInfos on pf.file_id equals f.id
                              where p.id == pageId
-                             select f).AsQueryable();
+                             select f).ToList();
 
                 return query;
             }

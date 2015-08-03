@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     font-family: 微软雅黑,Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: rgb(102,102,102);
 }
 
 html, body {
@@ -10,47 +12,58 @@ html, body {
 }
 
 .head {
+    display: block;
+    height: 85px;
     background-image: url(../../Content/imgs/top_menu_bg.png);
     background-color: #000;
     background-clip: border-box;
     font-size: 12px;
     text-align: center;
-    display: block;
-    height: 80px;
-    line-height: 60px;
+    line-height: 85px;
 }
 
-.top_title {
-    margin-top: 19px;
-    color: #FFF;
-    text-decoration: none;
-}
-
-.head ul {
-    margin: 0 0 0 400px;
-    list-style: none;
-}
-
-.head li {
-    list-style: none;
-    width: 100px;
-    float: left;
-    display: block;
-    height: 60px;
-    line-height: 60px;
-    margin-top: 19px;
-    font-size: 16px;
-    color: #FFF;
-}
-
-    .head li a {
-        font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simhei,"黑体";
-        cursor: pointer;
+    .head h1 {
+        width: 200px;
+        margin-left: 200px;
+        float: left;
     }
+
+        .head h1 a {
+            font-size: 25px;
+            text-decoration: none;
+            color: #FFF;
+            margin-top: 15px;
+            display:block;
+        }
+
+    .head ul {
+        margin: 0 0 0 500px;
+        list-style: none;
+        height: 85px;
+    }
+
+    .head li {
+        list-style: none;
+        width: 100px;
+        float: left;
+        display: block;
+        height: 85px;
+        line-height: 60px;
+        color: #FFF;
+    }
+
+        .head li a {
+            font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simhei,"黑体";
+            cursor: pointer;
+            color: #FFF;
+            display: block;
+            margin-top: 30px;
+            font-size: 16px;
+            text-decoration: none;
+        }
 
 .clearfix {
     display: block;
-    width: 635px;
     height: 70px;
     display: block;
 }
@@ -65,19 +78,19 @@ html, body {
     float: left;
 }
 
-    .mateRight :before {
+    .mateRight h2 {
         background: url(../../Content/imgs/arrow.gif) no-repeat center left;
         padding-left: 12px;
         position: relative;
         left: -13px;
     }
 
-    .mateRight h2 a {
-        text-decoration: none;
-        color: #333;
-        font-family: 微软雅黑,Arial, Helvetica, sans-serif;
-        font-size: 14px;
-    }
+        .mateRight h2 a {
+            text-decoration: none;
+            color: #333;
+            font-family: 微软雅黑,Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
 
     .mateRight p {
         font-size: 14px;
@@ -105,22 +118,16 @@ html, body {
     padding-left: 3px;
 }
 
-/******热门分类*******/
+/******图片上Title*******/
 
-.pageContainer {
-    width: 990px;
-    background: #FFF;
-    border: 1px solid #ECECEC;
-    border-top: none;
-    border-bottom: 2px solid #D7D7D7;
-    margin: 20px auto auto auto;
-}
 
 .mainContainer {
     float: left;
     width: 675px;
     border-right: 1px solid #EFEFEF;
 }
+
+
 /******热门分类*******/
 .sidebar {
     width: 298px;
@@ -131,6 +138,7 @@ html, body {
 
     .sidebar ul {
         list-style: none;
+        margin: 5px 0;
     }
 
     .sidebar li {
@@ -144,8 +152,35 @@ html, body {
             color: rgb(102,102,102);
             text-decoration: none;
             cursor: pointer;
+            font-size: 12px;
         }
+
+.top_model {
+    border-radius: 5px;
+    padding: 8px 15px;
+    zoom: 1;
+    line-height: 24px;
+    background-color: #F9F9F9;
+    overflow: hidden;
+}
 /******热门分类*******/
+
+
+.wapper {
+    z-index: 2;
+    width: 990px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.pageContainer {
+    width: 990px;
+    background: #FFF;
+    border: 1px solid #ECECEC;
+    border-top: none;
+    border-bottom: 2px solid #D7D7D7;
+    margin: 20px auto auto auto;
+}
 
 .postContent {
     padding: 10px 20px;
@@ -154,17 +189,16 @@ html, body {
     overflow: hidden;
 }
 
+    .postContent a img {
+        margin: 12px auto;
+        display: block;
+        width: 100%;
+    }
+
 .postLine {
     width: 645px;
     height: 1px;
     border-bottom: 1px solid #ddd;
     margin: 0 15px;
     clear: both;
-}
-
-.wapper {
-    z-index: 2;
-    width: 990px;
-    margin: 0 auto;
-    text-align: left;
 }

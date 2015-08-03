@@ -8,15 +8,15 @@
 </head>
 <body>
     <div class="head">
-        <h1 style=" width: 200px; margin-left: 100px; float:left;">@Html.ActionLink("PIAOLIANGTUPIAN", "Index", "Home", new { @class = "top_title" })</h1>
+        <h1>@Html.ActionLink("PIAOLIANGTUPIAN", "Index", "Home", new { @class = "top_title" })</h1>
         <ul>
-            <li style=" width:100px; float:left; display:block;">
+            <li>
                 <a>首页</a>
             </li>
-            <li style=" width:100px; float:left; display:block;">
+            <li>
                 <a>浏览最多</a>
             </li>
-            <li style=" width:100px; float:left; display:block;">
+            <li>
                 <a>我喜欢</a>
             </li>
         </ul>
@@ -26,7 +26,9 @@
             @RenderBody()
         </div>
         <div class="sidebar">
-            @Html.Action("TagMenu", "Tag")
+            <div class="top_model">
+                @Html.Action("TagMenu", "Tag")
+            </div>
         </div>
         <div style="clear:both;"></div>
     </div>
