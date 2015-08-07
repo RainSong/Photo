@@ -10,18 +10,23 @@ namespace Photo.Web.Controllers
     {
         //
         // GET: /Home/
-
         public ActionResult Index()
         {
+            RoteValueHelper rvh = new RoteValueHelper();
+            var index = rvh.GetInt("index", 1);
+
+            var pageSize = 10;
+            var startIndex = (index - 1) * pageSize;
             var pageBll = new BLL.Page();
-            var pages = pageBll.GetPages(0, 10);
+
+            var pages = pageBll.GetPages(startIndex, 10);
             List<Photo.Web.Models.Page> list = null;
             if (pages != null)
             {
                 var pageIds = pages.Select(o => o.id).AsEnumerable();
                 var fileBll = new BLL.File();
                 var files = fileBll.GetFileInfos(pageIds);
-                
+
                 if (files != null)
                 {
                     var imgs = (from f in files

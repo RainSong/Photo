@@ -14,9 +14,15 @@ namespace Photo.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "DeaultPage",
-                url: "{controller}/{id}",
-                defaults: new { Controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "ListPage",
+                url: "list/{index}",
+                defaults: new { controller = "Home", action = "Index", index = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "PageInfo",
+                url: "{controller}/{pageId}",
+                defaults: new { controller = "Home", action = "Index", pageId = UrlParameter.Optional }
             );
 
             routes.MapRoute(
@@ -24,7 +30,6 @@ namespace Photo.Web
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-
         }
     }
 }

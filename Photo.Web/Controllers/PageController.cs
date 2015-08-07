@@ -14,13 +14,15 @@ namespace Photo.Web.Controllers
 
         public ActionResult Index()
         {
+            RoteValueHelper rvh = new RoteValueHelper();
+            var pageId = rvh.GetInt("pageId", 1);
+
             var pageBll = new BLL.Page();
             var tagBll = new BLL.Tag();
             var fileBll = new BLL.File();
             Models.Page page = null;
             try
             {
-                var pageId = 757;
                 var pageInfo = pageBll.GetPage(pageId);
                 var tagInfos = tagBll.GetPageTags(pageId);
                 var imgs = fileBll.GetFileInfos(pageId);
@@ -37,10 +39,10 @@ namespace Photo.Web.Controllers
                                  Name = t.tag
                              }).ToList();
                 page.Imgs = (from i in imgs
-                             select new Models.Img 
+                             select new Models.Img
                              {
-                                Id = i.id,
-                                Path = i.path
+                                 Id = i.id,
+                                 Path = i.path
                              }).ToList();
             }
             catch (Exception ex) { }
