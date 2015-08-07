@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/Content/Site.css" rel="stylesheet" />
+    @RenderSection("head", false)
 </head>
 <body>
     <div class="head">
@@ -34,4 +35,5 @@
     </div>
     <div class="footer"></div>
 </body>
+@RenderSection("foot", false)
 </html>
