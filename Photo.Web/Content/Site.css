@@ -33,7 +33,7 @@ html, body {
             text-decoration: none;
             color: #FFF;
             margin-top: 15px;
-            display:block;
+            display: block;
         }
 
     .head ul {
@@ -201,4 +201,9 @@ html, body {
     border-bottom: 1px solid #ddd;
     margin: 0 15px;
     clear: both;
+}
+
+.navigation {
+    padding: 20px 10px;
+    width: 100%;
 }
