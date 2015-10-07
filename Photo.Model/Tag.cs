@@ -9,7 +9,7 @@ namespace Photo.Model
     {
         public Tag() { }
 
-        
+
         public int id { get; set; }
 
         [Required]
@@ -19,5 +19,8 @@ namespace Photo.Model
         public DateTime? add_time { get; set; }
 
         public int citations { get; set; }
+
+        [NotMapped]
+        public int PageID { get; set; }
     }
 }

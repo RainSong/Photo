@@ -76,6 +76,7 @@ html, body {
     line-height: 22px;
     display: block;
     float: left;
+    max-width: 500px;
 }
 
     .mateRight h2 {
@@ -206,4 +207,13 @@ html, body {
 .navigation {
     padding: 20px 10px;
     width: 100%;
+    padding-left: 30px;
 }
+
+.picture {
+    width: 635px;
+}
+
+    .picture img {
+        margin: 15px 0;
+    }

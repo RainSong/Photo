@@ -9,14 +9,24 @@
         <h2 style="margin:0;">
             <a href="#">@Model.Title</a>
         </h2>
-        @{
-            string tags = string.Empty;
-            if (Model.Tags != null && Model.Tags.Count() > 0)
-            {
-                tags = string.Join("，", Model.Tags.Select(o => o.Name).Distinct().ToArray());
+        <p>
+            Tag:
+            @{
+                string tags = string.Empty;
+                if (Model.Tags != null && Model.Tags.Count() > 0)
+                {
+                    var tagArr = Model.Tags.ToArray();
+                    for (var i = 0; i < tagArr.Length; i++)
+                    {
+                        if (i > 0)
+                        {@:,}
+                        <a href="/tag/pages/@tagArr[i].ID" target="_blank">@tagArr[i].Name</a>
+                        }
+
+                    }
+                }
             }
-        }
-        <p>Tags:@tags</p>
+        </p>
     </div>
     <div class="mateLeft">
         <div class="day">
@@ -30,9 +40,10 @@
 
 @*Image*@
 <div class="postContent">
-    @foreach (var img in Model.Imgs)
-    {
-        <img alt="" style="width:100%; height:100%;" src="~/imgs/@img.Path.Replace(" \\", "//")" />
-        <div class="postLine"></div>
-    }
+    <div class="picture">
+        @foreach (var img in Model.Imgs)
+        {
+            <img alt="" style="width:100%;" src="~/imgs/@img.Path.Replace(" \\", "//")" />
+        }
+    </div>
 </div>

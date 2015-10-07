@@ -10,5 +10,7 @@ namespace Photo.Web.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public int Citations { get; set; }
+
+        public IEnumerable<Web.Models.Page> Pages { get; set; }
     }
 }

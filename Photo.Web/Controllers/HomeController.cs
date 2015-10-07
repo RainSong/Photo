@@ -26,7 +26,8 @@ namespace Photo.Web.Controllers
                 var pageIds = pages.Select(o => o.id).AsEnumerable();
                 var fileBll = new BLL.File();
                 var files = fileBll.GetFileInfos(pageIds);
-
+                var tagBll = new BLL.Tag();
+                var tags = tagBll.GetPageTags(pageIds);
                 if (files != null)
                 {
                     var imgs = (from f in files
@@ -46,8 +47,20 @@ namespace Photo.Web.Controllers
                                 AddTime = p.add_time,
                                 Title = p.title,
                                 Description = p.description,
-                                DefaultImg = imgs.FirstOrDefault(o => o.PageId == p.id)
+                                DefaultImg = imgs.FirstOrDefault(o => o.PageId == p.id),
                             }).ToList();
+
+                    list.ForEach(p =>
+                    {
+                        p.Tags = (from t in tags
+                                  where t.PageID == p.Id
+                                  select new Web.Models.Tag
+                                  {
+                                      ID = t.id,
+                                      Name = t.tag,
+                                      Citations = t.citations
+                                  }).ToList();
+                    });
                 }
             }
             return View(list);

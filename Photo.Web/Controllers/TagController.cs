@@ -31,5 +31,12 @@ namespace Photo.Web.Controllers
             return PartialView(list);
         }
 
+        public ViewResult Pages()
+        {
+            var list = new List<Model.PageInfo>();
+
+            return View(list);
+        }
+
     }
 }

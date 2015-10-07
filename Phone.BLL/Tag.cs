@@ -45,5 +45,35 @@ namespace Photo.BLL
 
             }
         }
+
+        public IEnumerable<Model.Tag> GetPageTags(IEnumerable<int> pageIds)
+        {
+            using (var dbContext = new PhotoContext())
+            {
+                var result = (from t in dbContext.Tags
+                              join pt in dbContext.PageTags on t.id equals pt.tag_id into ptTemp
+                              from ptt in ptTemp.DefaultIfEmpty()
+                              join p in dbContext.PageTags on ptt.page_id equals p.page_id into pageTemps
+                              from pageTemp in pageTemps.DefaultIfEmpty()
+                              where pageIds.Contains(pageTemp.page_id)
+                              orderby t.citations
+                              select new
+                              {
+                                  t.id,
+                                  t.tag,
+                                  t.citations,
+                                  pageTemp.page_id
+                              }).ToList();
+                var tags = (from r in result
+                            select new Model.Tag
+                            {
+                                id = r.id,
+                                tag = r.tag,
+                                citations = r.citations,
+                                PageID = r.page_id
+                            }).ToList();
+                return tags;
+            }
+        }
     }
 }

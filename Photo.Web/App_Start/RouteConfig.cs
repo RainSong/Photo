@@ -20,6 +20,12 @@ namespace Photo.Web
             );
 
             routes.MapRoute(
+                name: "TagPageList",
+                url: "tag/{id}/{pageIndex}",
+                defaults: new { controller = "Tag", action = "Pages", id = UrlParameter.Optional, pageIndex = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "PageInfo",
                 url: "{controller}/{pageId}",
                 defaults: new { controller = "Home", action = "Index", pageId = UrlParameter.Optional }

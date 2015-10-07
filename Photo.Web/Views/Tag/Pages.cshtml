@@ -1,19 +1,20 @@
-﻿@model IEnumerable<Photo.Web.Models.Page>
-@{
-    ViewBag.Title = "漂亮图片";
-}
+﻿@model  Photo.Web.Models.Tag
 
 @section head{
     <link rel="stylesheet" type="text/css" href="~/Content/simplePagination.css" />
     <script type="text/javascript" src="~/Scripts/jquery.simplePagination.js"></script>
 }
 
-@if (Model != null)
+@{
+    ViewBag.Title = @Model.Name;
+}
+
+@if (Model != null && Model.Pages != null)
 {
-    foreach (var page in Model)
+    foreach (var page in Model.Pages)
     {
         string tags = string.Empty;
-        if (page.Tags != null)
+        if (page != null)
         {
             tags = string.Join("，", page.Tags.Select(o => o.Name).Distinct());
         }
@@ -51,6 +52,7 @@
         <div id="pagger" style=" text-align:right; padding-right:10px;"></div>
     </div>
 }
+
 @section foot{
     <script type="text/javascript">
         function initPagetion() {
